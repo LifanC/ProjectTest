@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Create</title>
+</head>
+<body>
+	<table border=1>
+		<tr>
+			<th><b>ID</b></th>
+			<th><b>Number</b></th>
+			<th><b>ProductNumber</b></th>
+			<th><b>ProductName</b></th>
+		</tr>
+		<tr th:each="ProductNumber : ${findData} " th:object="${ProductNumber}">
+		    <td th:text="*{id}"></td>
+			<td th:text="*{number}"></td>
+			<td th:text="*{productnumber}"></td>
+			<td th:text="*{productname}"></td>
+		</tr>
+
+	</table>
+</body>
+</html>
