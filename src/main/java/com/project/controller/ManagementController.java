@@ -1,17 +1,27 @@
 package com.project.controller;
 
 import org.springframework.web.bind.annotation.*;
-import java.util.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.servlet.*;
 import com.project.entity.*;
 import com.project.service.*;
+
+import java.util.*;
+
+
+
 
 @RestController
 public class ManagementController {
 	@Autowired
 	private ProjectService projectService;
 	Login o;
+	
+	@GetMapping("index")
+	public ModelAndView index() {
+		ModelAndView view=new ModelAndView("index");
+		return view;
+	}
 	/*
 	@GetMapping("login")
 	public ModelAndView login() {
@@ -20,13 +30,7 @@ public class ManagementController {
 		view.addObject("error",o);
 		return view;
 	}
-	*/
-	@GetMapping("index")
-	public ModelAndView login() {
-		ModelAndView view=new ModelAndView("index");
-		return view;
-	}
-	/*
+	
 	@PostMapping("login")
 	public ModelAndView index(@ModelAttribute Login login) {
 		if(login.getAccount().equals("admin") && login.getPassword().equals("1234")) {
@@ -42,6 +46,7 @@ public class ManagementController {
 		}
 	}
 	*/
+	
 	
 	@GetMapping("findall")
 	public List<ProductNumber> FindAlljson() {
@@ -89,6 +94,11 @@ public class ManagementController {
 		}
 		
 	}
+	
+	
+	
+	
+	
 }
 
 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<title>Spring MVC上傳檔案</title>
+</head>
+<body style="padding: 50px">
+	<form action="upload" method="post" enctype="multipart/form-data">
+		請選擇一個檔案上傳 : 
+		<input type="file" name="file" id="file" accept="image/*"/>
+		<p>
+		<a href="index">返回</a>
+        <button type="submit" >送出</button>
+        <p>
+        <img id="preview" src="https://picsum.photos/300/300" alt="" width="300" height="300">
+	</form>
+	<br>
+</body>
+<script>
+$(function(){
+	$("#file").on("change",function(){
+		var $file=$(this);
+		var fileObj=$file[0];
+		var windowURL=window.URL || window.webkitURL;
+		var dataURL;
+		var $img=$("img");
+		if(fileObj&&fileObj.files&&fileObj.files[0]){
+			dataURL=windowURL.createObjectURL(fileObj.files[0]);
+			$img.attr('src',dataURL);
+		}else{
+			dataURL=$file.val();
+			var imgObj=document.getElementById("preview");
+			imgObj.style.filer="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+			imgObj.filers.item("DXImageTransform.Microsoft.AlphaImageLoader").src=dataURL;
+		}
+	});
+});
+
+</script>
+</html>

@@ -27,7 +27,10 @@
 								class="form-control" placeholder="請輸入要新增的產品編號"></p>
 						<p><label>產品名稱:</label> <input type="text" id="product"
 								class="form-control" placeholder="請輸入要新增的產品名稱"></p>
-						<p><button class="w3-button w3-blue" type="button" id="btn">新增資料</button></p>
+						<p>
+						<button class="w3-button w3-blue" type="button" id="btn">新增資料</button>
+						<button class="w3-button w3-blue" type="button" id="btna">新增圖片</button>
+						</p>
 						<div id="display"></div>
 					</div>
 					<!-- 新增 -->
@@ -56,7 +59,7 @@
 						<p><label>產品編號:</label> <input type="text" id="numberD"
 								class="form-control" placeholder="請輸入要刪除的產品編號"></p>
 						<p><button class="w3-button w3-blue" type="button" id="btnD">產品刪除</button></p>
-						<p><div id="okNook"></div></p>
+						<p><div id="okNook"></div>
 					</div>
 					<!-- 查詢編號、刪除、修改 -->
 
@@ -150,11 +153,15 @@ function sendS() {
     }
     	
 }
+function senda() {
+	window.location.href='upload';
+}
 function start() {
     $("#btn").click(send);
     $("#btnFonly").click(sendFonly);
     $("#btnD").click(sendD);
     $("#btnS").click(sendS);
+    $("#btna").click(senda);
 }
 $(document).ready(start);
 </script>
